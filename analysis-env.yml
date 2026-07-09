@@ -1,0 +1,22 @@
+name: ecg-streaming
+channels:
+  - conda-forge
+  - ejolly
+  - defaults
+dependencies:
+  - python=3.12 # for older scipy
+  - mne=1.8 # because my FFR preprocessing code was written with 1.8,
+  - scipy<=1.16 # and MNE 1.8 needs legacy sph_harm function
+  - ipython
+  - jupyter
+  - pymc
+  - neurokit2
+  - pymer4 # Python wrapper for R's lme4
+  - pip
+  - pip:
+    - pybids
+    - pyprep
+    - mne_bids
+    - autoreject
+    - eeg_positions
+    - p2prev

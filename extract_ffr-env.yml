@@ -1,0 +1,17 @@
+name: physio2bids
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - mne=1.6.1
+  - mne-bids
+  - scipy=1.14.0
+  - neurokit2
+  - jupyter
+  - ipython
+  - pyxdf
+  - pip
+  - pip:
+    - niseq
+    - bioread
+    - pybids
