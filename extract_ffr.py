@@ -24,11 +24,13 @@ THRES = 35e-6
 TASK_TO_USE = 'both'
 assert(TASK_TO_USE in ['streaming', 'discrimination', 'both'])
 
-def main(layout, sub):
+def main(layout, sub, fake = False):
 
     # figure out where derivative files should be saved
     deriv_root = os.path.join(layout.root, 'derivatives')
     name_of_current_file = os.path.basename(__file__)[:-3]
+    if fake:
+        name_of_current_file += '_fake'
 
     ## only proceed if participant has not already been preprocessed
     deriv_dir = os.path.join(deriv_root, name_of_current_file, 'sub-%s'%sub)
@@ -63,6 +65,12 @@ def main(layout, sub):
             suffix = 'events',
             extension = 'tsv'
         )[0].get_df()
+        if fake:
+            # shift event times by 1/2 the cardiac cycle
+            # so we can make an "FFR" where there is no tone
+            # to check for cardiac artifacts
+            ibi = metadata.duration * 8 # tones are ~1/8 of IBI
+            events[:,0] += np.round(ibi * raw.info['sfreq'] / 2).astype(int)
 
         # filter out electrical noise and harmonics
         lf = raw.info['line_freq'] # this came from BIDS sidecar!
