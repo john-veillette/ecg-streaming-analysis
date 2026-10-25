@@ -1,6 +1,6 @@
 This repository contains the analysis code for our manuscript ["Listening with your heart: The heartbeat shapes auditory object formation by suppressing the early neural response to sound."](https://doi.org/10.64898/2026.08.17.745255)
 
-Data can be downloaded from _OpenNeuro_ at [this link](https://doi.org/10.18112/openneuro.ds007949.v1.0.0). Once you download the [BIDS-formatted](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/electroencephalography.html) directory, you should rename it `bids_dataset`, since that is how all code refers to it. (Or, alternatively, rename it in the code... as long as they match). Please note that
+Data can be downloaded from _OpenNeuro_ at [this link](https://doi.org/10.18112/openneuro.ds007949.v1.0.0). Once you download the [BIDS-formatted](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/electroencephalography.html) directory, you should rename it `bids_dataset`, since that is how all code refers to it. (Or, alternatively, rename it in the code... as long as they match). Please note that ECG data is contained within the EEG files, since they were recorded on the same amplifier.
 
 There are two "environment files" to help you install the necessary software packages into sand-boxed environments using [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html):
 * `extract_ffr-env.yml` is for running `extract_ffr.py` and `extract_ffr_fake.py`.
